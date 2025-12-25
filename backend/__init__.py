@@ -3,10 +3,9 @@
 import os
 from flask import Flask
 
+
 def create_app():
     """Creamos la APP
-
-
     si quieres evitar estar escribiendo esto puedes usar:
     (al final del archivo activate de tu entorno de desarrolo (VENV))
     export FLASK_DATABASE_HOST='127.0.0.1'
@@ -24,8 +23,10 @@ def create_app():
         DATABASE = os.environ.get('FLASK_DATABASE'),
     )
 
-    @app.route('/')#podemos tener las rutas que necesitemos
-    def hola():
-        """Devuelve un hola mundo como simulando lo que seria un index"""
-        return 'Hola Mundo!!! esta es una pagina secreta que solo se podra acceder si tenemos la ruta /saludo'
+    from . import db
+    db.init_app(app)
+
+    from .templates.auth import auth
+    app.register_blueprint(auth.bp)
+
     return app
