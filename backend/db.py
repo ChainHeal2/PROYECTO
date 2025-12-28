@@ -7,8 +7,8 @@ from .schema import esquema
 
 def get_db():
     """funcion que crea db en g
-    g = es como una variable "global" una instancia cada usuario tiene su g
-    una vez que g hace su peticion y se le devuelve algo g se destruye.
+    g = es como una variable "global" una instancia cada usuario tiene su g.
+    una vez que g hace su peticion y la bd responde y g se destruye.
     """
     if 'db' not in g:
         #si no existe un atributo 'db' en g se la creamos
