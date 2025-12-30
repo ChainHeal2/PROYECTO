@@ -3,6 +3,9 @@
 {%block contenido%}
 <h1>Inicia sesion!</h1>
 <form action="" method="post">
+    {%for mensaje in get_flashed_messages()%}
+    <div>{{mensaje}}</div>
+    {%endfor%}
     <label for="usuario">usuario</label>
     <input type="text" name="usuario" required>
     <label for="password">contraseña</label>
