@@ -26,7 +26,10 @@
                         >INICIO<span class="visually-hidden">(current)</span></a>
                     <a class="nav-item nav-link" href="{{url_for('auth.login')}}">LOGIN</a>
                     <a class="nav-item nav-link" href="{{url_for('auth.register')}}">REGISTER</a>
+                    {%if session.get('username') %}
                     <a class="nav-item nav-link" href="{{url_for('auth.logout')}}">Cerrar sesion</a>
+                    {%endif%}
+                    
                 </div>
             </nav>
         </header>

@@ -51,7 +51,7 @@ def login():
             db ,c = get_db()
             c.execute('select id_user,usuario,password from usuario where usuario = %s',(username,))
             user = c.fetchone()
-            if username is None:
+            if user is None:
                 error = 'Usuario o contraseña incorrecta '
             elif not check_password_hash(user['password'],password):
                 error = 'Usuario o contraseña incorrecta password '
